@@ -1,0 +1,21 @@
+[package]
+authors = ["Icemic <bingfeng.web@gmail.com>"]
+description = "Font information query and subset tool"
+edition = "2021"
+license = "Apache-2.0 OR MIT"
+name = "duanzhang"
+version = "0.1.0"
+
+[[bin]]
+name = "duanzhang"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+clap = {version = "4.5.13", features = ["derive"]}
+env_logger = "0.11"
+log = "0.4"
+unicode-blocks = "0.1.9"
+
+hb-subset = {git = "https://github.com/Icemic/hb-subset-rs", version = "0.3.0", features = ["bundled"]}
+ttf-parser = {version = "0.25.1", default-features = false, features = ["std"]}
