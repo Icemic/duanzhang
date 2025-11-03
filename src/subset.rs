@@ -1,4 +1,3 @@
-use std::mem::transmute;
 use std::path::PathBuf;
 use std::str::FromStr;
 
@@ -98,7 +97,7 @@ pub fn subset(
 
         for block in blocks_list {
             for c in block.start()..block.end() + 1 {
-                subset.unicode_set().insert(unsafe { transmute(c) });
+                subset.unicode_set().insert(char::from_u32(c).unwrap());
             }
         }
     }

@@ -85,7 +85,7 @@ pub fn info(file: &str) -> Result<()> {
             subtable.codepoints(|codepoint| {
                 if let Some(mapping) = subtable.glyph_index(codepoint) {
                     if let Some(_) = NonZeroU16::new(mapping.0) {
-                        charsets.insert(unsafe { std::mem::transmute(codepoint) });
+                        charsets.insert(char::from_u32(codepoint).unwrap());
                     }
                 }
             })
