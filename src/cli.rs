@@ -21,8 +21,8 @@ pub enum Commands {
         output: Option<String>,
 
         /// 字符集文件（包含所需字符的文本文件）
-        #[arg(short, long)]
-        charset: Option<String>,
+        #[arg(short, long, value_delimiter = ',')]
+        charset: Vec<String>,
 
         /// 使用预设字符集
         #[arg(long, value_delimiter = ',')]

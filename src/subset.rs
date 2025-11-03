@@ -49,7 +49,7 @@ const ASCII: [UnicodeBlock; 2] = [
 pub fn subset(
     file: &str,
     output: &Option<String>,
-    charset: &Option<String>,
+    charset: &Vec<String>,
     preset: &Vec<Preset>,
 ) -> Result<()> {
     let font_data = std::fs::read(file).unwrap();
@@ -63,7 +63,7 @@ pub fn subset(
     {
         let mut chars = String::new();
 
-        if let Some(charset) = charset {
+        for charset in charset {
             match std::fs::read_to_string(charset) {
                 Ok(c) => chars.push_str(&c),
                 Err(e) => {
